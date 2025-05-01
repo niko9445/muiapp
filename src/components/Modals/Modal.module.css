@@ -1,0 +1,297 @@
+/* Основные стили модального окна */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+  backdrop-filter: blur(6px);
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.modalContent {
+  background-color: #3a4455;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 520px;
+  margin: 16px;
+  overflow: hidden;
+  transform: translateY(16px);
+  animation: slideUp 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+  border: 1px solid #4d5668;
+}
+
+@keyframes slideUp {
+  to { transform: translateY(0); }
+}
+
+/* Заголовок */
+.modalHeader {
+  padding: 18px 24px;
+  border-bottom: 1px solid #4d5668;
+  background-color: #3a4455;
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #f0f4f8;
+  display: flex;
+  align-items: center;
+}
+
+/* Тело модалки */
+.modalBody {
+  padding: 0 20px 20px;
+  line-height: 1.5;
+  color: #d0d8e0;
+  max-height: 68vh;
+  overflow-y: auto;
+}
+
+.modalBody strong {
+  color: #ffffff;
+}
+
+/* Форма */
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modalIcon {
+  width: 22px;
+  height: 22px;
+  margin-right: 10px;
+  color: #6b7de8;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formLabel {
+  font-size: 0.9rem;
+  color: #b0b8c8;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.required {
+  color: #ff6b6b;
+  margin-left: 4px;
+  font-size: 1.1rem;
+}
+
+.formInput, .formTextarea {
+  padding: 10px 14px;
+  border: 1px solid #4d5668;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s;
+  background-color: #4d5668;
+  color: #f0f4f8;
+}
+
+.formInput:focus, .formTextarea:focus {
+  outline: none;
+  border-color: #6b7de8;
+  box-shadow: 0 0 0 2px rgba(107, 125, 232, 0.2);
+}
+
+.formInput::placeholder, .formTextarea::placeholder {
+  color: #7a8496;
+  font-size: 0.9rem;
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+/* Футер */
+.modalFooter {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  background-color: #3a4455;
+  border-top: 1px solid #4d5668;
+}
+
+/* Базовые стили кнопок */
+.modalButton {
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  height: 40px;
+  border: none;
+}
+
+/* Кнопка отмены */
+.secondaryButton {
+  background-color: #4d5668;
+  color: #e0e8f0;
+  border: 1px solid #5a6478;
+}
+
+.secondaryButton:hover:not(:disabled) {
+  background-color: #5a6478;
+}
+
+/* Кнопка сохранения */
+.primaryButton {
+  background-color: #6b7de8;
+  color: white;
+}
+
+.primaryButton:hover:not(:disabled) {
+  background-color: #5a6bd6;
+}
+
+/* Кнопка удаления */
+.deleteButton {
+  background-color: #e54e4e;
+  color: white;
+}
+
+.deleteButton:hover:not(:disabled) {
+  background-color: #d43c3c;
+}
+
+/* Кнопка редактирования */
+.editButton {
+  background-color: #4a9fe1;
+  color: white;
+}
+
+.editButton:hover:not(:disabled) {
+  background-color: #398ed0;
+}
+
+/* Общие состояния кнопок */
+.modalButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Спиннер */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: currentColor;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Иконки */
+.buttonIcon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+
+.inputIcon {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a0aec0;
+  pointer-events: none;
+}
+
+/* Поля с иконками */
+.inputWithIcon {
+  position: relative;
+}
+
+.inputWithIcon .formInput {
+  padding-left: 38px;
+}
+
+/* Опциональные поля */
+.optional {
+  font-size: 0.75rem;
+  color: #7a8496;
+  margin-left: 6px;
+  font-weight: 400;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+  .modalContent {
+    margin: 10px;
+    max-width: calc(100% - 20px);
+  }
+  
+  .modalHeader {
+    padding: 16px 20px;
+  }
+  
+  .modalBody {
+    padding: 0 16px 16px;
+    max-height: 80vh;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .modalButton {
+    min-width: 90px;
+    height: 38px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .modalFooter {
+    padding: 14px 16px;
+  }
+}

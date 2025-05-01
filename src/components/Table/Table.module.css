@@ -1,0 +1,46 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #333;
+    color: #fff;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .th {
+    padding: 12px 10px;
+    text-align: left;
+    background-color: #2a2a2a;
+    border-bottom: 1px solid #444;
+    font-weight: 500;
+  }
+  
+  .td {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+    vertical-align: top;
+  }
+  
+  .tr {
+    transition: background-color 0.2s ease;
+  }
+  
+  .tr:hover {
+    background-color: #3a3a3a;
+    cursor: pointer;
+  }
+  
+  .selected {
+    background-color: #4a4a4a !important;
+  }
+  
+  /* Адаптивность для маленьких экранов */
+  @media (max-width: 768px) {
+    .table {
+      font-size: 12px;
+    }
+    
+    .th, .td {
+      padding: 8px 6px;
+    }
+  }
