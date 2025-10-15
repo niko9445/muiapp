@@ -1,0 +1,442 @@
+.maintenancesection__container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.maintenancesection__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.maintenancesection__title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.maintenancesection__add-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #1e40af;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.maintenancesection__add-button:hover {
+  background: #3b82f6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.maintenancesection__add-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.maintenancesection__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+.maintenancesection__card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  animation: maintenancesection__appear 0.4s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.maintenancesection__card:hover {
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.maintenancesection__card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.maintenancesection__card-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.maintenancesection__delete-button {
+  background: #dc2626;
+  border: none;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.maintenancesection__delete-button:hover {
+  background: #ef4444;
+  transform: scale(1.1);
+}
+
+.maintenancesection__delete-icon {
+  width: 16px;
+  height: 16px;
+  color: white;
+}
+
+.maintenancesection__card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.maintenancesection__info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.maintenancesection__info-label {
+  font-size: 14px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.maintenancesection__info-value {
+  font-size: 14px;
+  color: #f1f5f9;
+  font-weight: 600;
+}
+
+.maintenancesection__cost {
+  color: #10b981;
+  font-weight: 700;
+}
+
+.maintenancesection__service-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 8px 0;
+  padding: 12px;
+  background: #1f2937;
+  border-radius: 8px;
+  border-left: 3px solid #3b82f6;
+}
+
+.maintenancesection__service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.maintenancesection__service-label {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.maintenancesection__service-value {
+  font-size: 13px;
+  color: #f1f5f9;
+  font-weight: 600;
+}
+
+.maintenancesection__additional {
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #334155;
+}
+
+.maintenancesection__additional-label {
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.maintenancesection__additional-item {
+  font-size: 13px;
+  color: #cbd5e1;
+  padding: 2px 0;
+  margin-left: 8px;
+}
+
+.maintenancesection__empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  color: #64748b;
+  font-size: 16px;
+}
+
+/* Форма */
+.maintenancesection__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.maintenancesection__form::-webkit-scrollbar {
+  width: 6px;
+}
+
+.maintenancesection__form::-webkit-scrollbar-track {
+  background: #1f2937;
+  border-radius: 3px;
+}
+
+.maintenancesection__form::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 3px;
+}
+
+.maintenancesection__form::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+.maintenancesection__form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.maintenancesection__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.maintenancesection__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #d1d5db;
+}
+
+.maintenancesection__input {
+  padding: 10px 12px;
+  border: 1px solid #4b5563;
+  border-radius: 6px;
+  background: #1f2937;
+  color: white;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.maintenancesection__input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.maintenancesection__subtitle {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.maintenancesection__additional-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.maintenancesection__add-item-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 8px;
+  align-items: end;
+}
+
+.maintenancesection__add-item-button {
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.maintenancesection__add-item-button:hover {
+  background: #34d399;
+}
+
+.maintenancesection__added-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: #374151;
+  border-radius: 6px;
+  border-left: 3px solid #10b981;
+}
+
+.maintenancesection__added-item-text {
+  font-size: 13px;
+  color: #e5e7eb;
+  flex: 1;
+}
+
+.maintenancesection__remove-item-button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.maintenancesection__modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #374151;
+  position: sticky;
+  bottom: 0;
+  background: #1f2937;
+  padding-bottom: 8px;
+}
+
+.maintenancesection__button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.maintenancesection__button--cancel {
+  background: #6b7280;
+  color: white;
+}
+
+.maintenancesection__button--cancel:hover {
+  background: #9ca3af;
+}
+
+.maintenancesection__button--save {
+  background: #1e40af;
+  color: white;
+}
+
+.maintenancesection__button--save:hover {
+  background: #3b82f6;
+}
+
+@keyframes maintenancesection__appear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .maintenancesection__form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .maintenancesection__add-item-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .maintenancesection__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.maintenancesection__card-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.maintenancesection__edit-button {
+  background: #3b82f6;
+  border: none;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.maintenancesection__edit-button:hover {
+  background: #60a5fa;
+  transform: scale(1.1);
+}
+
+.maintenancesection__edit-icon {
+  width: 16px;
+  height: 16px;
+  color: white;
+}
+
+.maintenancesection__delete-button {
+  background: #dc2626;
+  border: none;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.maintenancesection__delete-button:hover {
+  background: #ef4444;
+  transform: scale(1.1);
+}
+
+.maintenancesection__delete-icon {
+  width: 16px;
+  height: 16px;
+  color: white;
+}

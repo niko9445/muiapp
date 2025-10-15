@@ -1,0 +1,75 @@
+.editcarmodal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.editcarmodal__form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.editcarmodal__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.editcarmodal__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #d1d5db;
+}
+
+.editcarmodal__input {
+  padding: 10px 12px;
+  border: 1px solid #4b5563;
+  border-radius: 6px;
+  background: #1f2937;
+  color: white;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.editcarmodal__input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.editcarmodal__modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.editcarmodal__button {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  min-width: 100px;
+}
+
+.editcarmodal__button--cancel {
+  background: #6b7280;
+  color: white;
+}
+
+.editcarmodal__button--cancel:hover {
+  background: #9ca3af;
+}
+
+.editcarmodal__button--save {
+  background: #1e40af;
+  color: white;
+}
+
+.editcarmodal__button--save:hover {
+  background: #3b82f6;
+}

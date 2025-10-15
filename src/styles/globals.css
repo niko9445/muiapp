@@ -1,0 +1,510 @@
+/* Стили для простых модальных окон */
+.simple-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.simple-modal {
+  background: #1f2937;
+  border-radius: 12px;
+  border: 1px solid #374151;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.simple-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #374151;
+}
+
+.simple-modal-header h3 {
+  margin: 0;
+  color: #f9fafb;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.simple-modal-header button {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.simple-modal-header button:hover {
+  background: #374151;
+  color: #f3f4f6;
+}
+
+.simple-modal-content {
+  padding: 24px;
+}
+
+/* Стили для форм */
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #d1d5db;
+}
+
+.form-input {
+  padding: 10px 12px;
+  border: 1px solid #4b5563;
+  border-radius: 6px;
+  background: #1f2937;
+  color: white;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.form-input::placeholder {
+  color: #6b7280;
+}
+
+/* Стили для кнопок */
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.cancel-btn, .save-btn, .delete-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.cancel-btn {
+  background: #6b7280;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background: #9ca3af;
+}
+
+.save-btn {
+  background: #1e40af;
+  color: white;
+}
+
+.save-btn:hover {
+  background: #3b82f6;
+}
+
+.delete-btn {
+  background: #dc2626;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #ef4444;
+}
+
+/* Стили для подтверждения удаления */
+.delete-confirm p {
+  margin: 0 0 12px 0;
+  color: #e5e7eb;
+  line-height: 1.5;
+}
+
+.warning-text {
+  color: #fca5a5 !important;
+  font-size: 14px;
+}
+
+/* ОСНОВНАЯ СТРУКТУРА ЛАЙАУТА */
+.app {
+  display: flex;
+  height: 100vh;
+  background: #0f172a;
+  position: relative;
+}
+
+.sidebar-wrapper {
+  position: relative;
+}
+
+
+/* Стили для сайдбара */
+.sidebar-edge {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 12px;
+  background: linear-gradient(
+    90deg,
+    rgba(59, 130, 246, 0.6) 0%,
+    rgba(59, 130, 246, 0.3) 70%,
+    transparent 100%
+  );
+  z-index: 998;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+.sidebar-edge:hover {
+  width: 16px;
+  background: linear-gradient(
+    90deg,
+    rgba(59, 130, 246, 0.8) 0%,
+    rgba(59, 130, 246, 0.4) 70%,
+    transparent 100%
+  );
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  backdrop-filter: blur(2px);
+}
+
+/* Стили для форм ТО и данных авто */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.additional-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.add-item-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 8px;
+  align-items: end;
+}
+
+.add-item-button {
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.add-item-button:hover {
+  background: #34d399;
+}
+
+.added-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: #374151;
+  border-radius: 6px;
+  border-left: 3px solid #10b981;
+}
+
+.added-item-text {
+  font-size: 13px;
+  color: #e5e7eb;
+  flex: 1;
+}
+
+.remove-item-button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.fields-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.remove-field-button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.remove-field-button:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+.add-field-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #374151;
+  color: #d1d5db;
+  border: 1px dashed #6b7280;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.add-field-button:hover {
+  background: #4b5563;
+  border-color: #9ca3af;
+  color: white;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .sidebar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar-wrapper--closed {
+    transform: translateX(-100%);
+  }
+
+  .sidebar-wrapper--open {
+    transform: translateX(0);
+  }
+
+  .app__main {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  .simple-modal-overlay {
+    padding: 10px;
+  }
+  
+  .simple-modal {
+    max-width: 100%;
+    max-height: 95vh;
+  }
+  
+  .simple-modal-header {
+    padding: 16px 20px;
+  }
+  
+  .simple-modal-content {
+    padding: 20px;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+  }
+  
+  .cancel-btn, .save-btn, .delete-btn {
+    width: 100%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .add-item-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .field-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .remove-field-button {
+    width: 100%;
+    height: 40px;
+  }
+}
+
+/* ФИКС ДЛЯ КОРНЕВОГО КОНТЕЙНЕРА */
+.app {
+    display: flex;
+    height: 100vh;
+    background: #0f172a;
+    position: relative;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    overflow: hidden !important;
+}
+
+/* ЖЕСТКИЙ СБРОС ДЛЯ ВСЕХ ВЛОЖЕННЫХ ЭЛЕМЕНТОВ */
+.app * {
+    box-sizing: border-box !important;
+}
+
+.app > * {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+
+@media (max-width: 768px) {
+    .app__main {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+}
+
+/* ВОССТАНАВЛИВАЕМ СТИЛИ ДЛЯ ПОЛЕЙ ВВОДА */
+.form-group input,
+.add-item-grid input,
+.field-row input,
+.form-input {
+  padding: 10px 12px !important;
+  border: 1px solid #4b5563 !important;
+  border-radius: 6px !important;
+  background: #1f2937 !important;
+  color: white !important;
+  font-size: 14px !important;
+  transition: all 0.2s ease !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.form-group input:focus,
+.add-item-grid input:focus,
+.field-row input:focus,
+.form-input:focus {
+  outline: none !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2) !important;
+}
+
+.form-group input::placeholder,
+.add-item-grid input::placeholder,
+.field-row input::placeholder,
+.form-input::placeholder {
+  color: #6b7280 !important;
+}
+
+/* Убедимся что все инпуты в модальных окнах имеют стили */
+.simple-modal-content input[type="text"],
+.simple-modal-content input[type="number"] {
+  padding: 10px 12px !important;
+  border: 1px solid #4b5563 !important;
+  border-radius: 6px !important;
+  background: #1f2937 !important;
+  color: white !important;
+  font-size: 14px !important;
+  transition: all 0.2s ease !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}

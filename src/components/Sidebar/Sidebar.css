@@ -1,0 +1,495 @@
+.sidebar__container {
+  width: 300px;
+  background: #111827;
+  border-right: 1px solid #374151;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar__header {
+  padding: 20px;
+  border-bottom: 1px solid #374151;
+  background: #1f2937;
+  position: relative;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sidebar__header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #374151;
+}
+
+.sidebar__title {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f3f4f6;
+}
+
+.sidebar__add-button {
+  width: 100%;
+  background: #1e40af;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.sidebar__add-button:hover {
+  background: #3b82f6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.sidebar__add-icon {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.sidebar__cars-list {
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.sidebar__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.sidebar__empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.sidebar__empty-text {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #9ca3af;
+}
+
+.sidebar__empty-subtext {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Стили для CarCard */
+.car-card {
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.car-card:hover {
+  background: #374151;
+  border-color: #4b5563;
+  transform: translateY(-1px);
+}
+
+.car-card--selected {
+  background: #1e40af;
+  border-color: #3b82f6;
+}
+
+.car-card--selected:hover {
+  background: #2563eb;
+}
+
+.car-card__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.car-card__info {
+  flex: 1;
+}
+
+.car-card__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #f3f4f6;
+  margin-bottom: 4px;
+}
+
+.car-card__year {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.car-card__actions {
+  display: flex;
+  gap: 6px;
+}
+
+.car-card__btn {
+  background: none;
+  border: none;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.car-card__btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.car-card__btn--edit:hover {
+  background: rgba(34, 197, 94, 0.2);
+}
+
+.car-card__btn--delete:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+/* Кнопка закрытия для мобильных */
+.sidebar__close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 24px;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  z-index: 1001;
+}
+
+.sidebar__close-btn:hover {
+  background: #374151;
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ ДЛЯ КАРТОЧЕК АВТО */
+@media (max-width: 768px) {
+  .car-card {
+    padding: 16px;
+  }
+
+  .car-card__content {
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .car-card__info {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0 !important;
+  }
+
+  .car-card__actions {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0 !important;
+  }
+
+  .car-card__btn {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px;
+    flex: 1;
+    max-width: 100px;
+    margin: 0;
+  }
+}
+
+/* Безопасные зоны для iPhone */
+@supports(padding: max(0px)) {
+  .sidebar__container {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+  
+  .sidebar__header {
+    padding-top: max(20px, env(safe-area-inset-top));
+  }
+  
+  .sidebar__cars-list {
+    padding-bottom: max(15px, env(safe-area-inset-bottom));
+  }
+}
+
+/* Остальные существующие стили */
+.sidebar__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebar__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #d1d5db;
+}
+
+.sidebar__input {
+  padding: 10px 12px;
+  border: 1px solid #4b5563;
+  border-radius: 6px;
+  background: #1f2937;
+  color: white;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.sidebar__input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.sidebar__modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.sidebar__button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.sidebar__button--cancel {
+  background: #6b7280;
+  color: white;
+}
+
+.sidebar__button--cancel:hover {
+  background: #9ca3af;
+}
+
+.sidebar__button--save {
+  background: #1e40af;
+  color: white;
+}
+
+.sidebar__button--save:hover {
+  background: #3b82f6;
+}
+
+.sidebar__form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.sidebar__form-group--compact {
+  margin-bottom: 0;
+}
+
+.sidebar__input--compact {
+  padding: 8px 12px;
+  height: 36px;
+  font-size: 14px;
+}
+
+.sidebar__modal-actions--centered {
+  justify-content: center;
+}
+
+.sidebar__modal-actions--mobile {
+  flex-direction: column;
+}
+
+.sidebar__modal-actions--mobile .sidebar__button {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Вертикальная полоска по краю экрана */
+.sidebar-edge {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 12px;
+  background: linear-gradient(
+    90deg,
+    rgba(59, 130, 246, 0.6) 0%,
+    rgba(59, 130, 246, 0.3) 70%,
+    transparent 100%
+  );
+  z-index: 998;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+.sidebar-edge:hover {
+  width: 16px;
+  background: linear-gradient(
+    90deg,
+    rgba(59, 130, 246, 0.8) 0%,
+    rgba(59, 130, 246, 0.4) 70%,
+    transparent 100%
+  );
+}
+
+.sidebar-edge:active {
+  background: linear-gradient(
+    90deg,
+    rgba(99, 102, 241, 0.9) 0%,
+    rgba(99, 102, 241, 0.5) 70%,
+    transparent 100%
+  );
+}
+
+/* Анимация появления полоски */
+.sidebar-edge {
+  animation: slideInEdge 0.4s ease-out;
+}
+
+@keyframes slideInEdge {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Прячем полоску когда сайдбар открыт */
+.sidebar-wrapper--open ~ .sidebar-edge {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-8px);
+}
+
+/* Безопасные зоны для iPhone */
+@supports(padding: max(0px)) {
+  .sidebar-edge {
+    left: max(0px, env(safe-area-inset-left));
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+  .sidebar-edge {
+    width: 10px;
+  }
+  
+  .sidebar-edge:hover {
+    width: 14px;
+  }
+}
+
+/* Существующие стили оставляем */
+.app {
+  display: flex;
+  height: 100vh;
+  background: #0f172a;
+  position: relative;
+}
+
+.sidebar-wrapper {
+  position: relative;
+}
+
+.app__main {
+  flex: 1;
+  margin-left: 300px;
+  background: #0f172a;
+  height: 100vh;
+  overflow: auto;
+}
+
+/* Мобильные стили для sidebar wrapper */
+@media (max-width: 768px) {
+  .sidebar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar-wrapper--closed {
+    transform: translateX(-100%);
+  }
+
+  .sidebar-wrapper--open {
+    transform: translateX(0);
+  }
+
+  .app__main {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* Оверлей для мобильных */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  backdrop-filter: blur(2px);
+}
+

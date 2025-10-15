@@ -1,0 +1,188 @@
+.carcard__container {
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: carcard__appear 0.4s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.carcard__container:hover {
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.carcard__container--selected {
+  border-color: #3b82f6;
+  background: linear-gradient(135deg, #1f2937 0%, #1e3a8a 100%);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+}
+
+.carcard__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.carcard__main-info {
+  flex: 1;
+}
+
+.carcard__title {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #f9fafb;
+}
+
+.carcard__year {
+  margin: 0;
+  font-size: 14px;
+  color: #9ca3af;
+  opacity: 0.8;
+}
+
+.carcard__delete-button {
+  background: #dc2626;
+  border: none;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carcard__delete-button:hover {
+  background: #ef4444;
+  transform: scale(1.1);
+}
+
+.carcard__delete-icon {
+  width: 16px;
+  height: 16px;
+  color: white;
+}
+
+@keyframes carcard__appear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carcard__actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.carcard__edit-button {
+  background: #3b82f6;
+  border: none;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carcard__edit-button:hover {
+  background: #60a5fa;
+  transform: scale(1.1);
+}
+
+.carcard__edit-icon {
+  width: 16px;
+  height: 16px;
+  color: white;
+}
+
+.carcard__delete-button {
+  background: #dc2626;
+  border: none;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carcard__delete-button:hover {
+  background: #ef4444;
+  transform: scale(1.1);
+}
+
+.carcard__delete-icon {
+  width: 16px;
+  height: 16px;
+  color: white;
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ ДЛЯ КАРТОЧЕК АВТО */
+@media (max-width: 768px) {
+  .carcard__container {
+    padding: 16px;
+  }
+
+  .carcard__content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .carcard__main-info {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .carcard__title,
+  .carcard__year {
+    margin-bottom: 0;
+  }
+
+  .carcard__actions {
+    width: 100%;
+    justify-content: center;
+    gap: 0;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #374151;
+  }
+
+  .carcard__edit-button,
+  .carcard__delete-button { 
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px;
+    flex: 1;
+    max-width: 100px;
+    margin: 0;
+  }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+  .carcard__actions {
+    justify-content: space-between;
+  }
+  
+  .carcard__edit-button,
+  .carcard__delete-button {
+    flex: 1;
+    justify-content: center;
+  }
+}
+

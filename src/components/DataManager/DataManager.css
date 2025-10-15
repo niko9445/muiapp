@@ -1,0 +1,240 @@
+.datamanager__container {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 20px 32px;
+}
+
+.datamanager__title {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.datamanager__description {
+  margin: 0 0 24px 0;
+  font-size: 14px;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+.datamanager__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.datamanager__button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  min-width: auto;
+  flex: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Убрал сложную анимацию ::before - заменяем на простые эффекты */
+
+.datamanager__button--export {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  color: white;
+  border: 1px solid #10b981;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3);
+}
+
+.datamanager__button--export:hover {
+  background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(5, 150, 105, 0.4);
+}
+
+.datamanager__button--import {
+  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+  color: white;
+  border: 1px solid #8b5cf6;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
+}
+
+.datamanager__button--import:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.4);
+}
+
+.datamanager__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Простая анимация иконки при hover */
+.datamanager__button:hover .datamanager__icon {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .datamanager__container {
+    margin: 20px 16px;
+    padding: 20px;
+  }
+  
+  .datamanager__actions {
+    flex-direction: column;
+  }
+  
+  .datamanager__button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Стили для модального окна экспорта */
+.export-modal {
+  padding: 0;
+}
+
+.export-modal__description {
+  margin: 0 0 20px 0;
+  color: #94a3b8;
+  font-size: 14px;
+  text-align: center;
+}
+
+.export-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.export-option {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 16px;
+  transition: all 0.3s ease;
+}
+
+.export-option:hover {
+  border-color: #475569;
+  transform: translateY(-1px);
+}
+
+.export-option__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.export-option__icon {
+  font-size: 20px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #374151;
+  border-radius: 6px;
+}
+
+.export-option__title {
+  font-weight: 600;
+  color: #f8fafc;
+  font-size: 16px;
+}
+
+.export-option__content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.export-option__input {
+  padding: 10px 12px;
+  border: 1px solid #4b5563;
+  border-radius: 6px;
+  background: #111827;
+  color: white;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.export-option__input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.export-option__button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  background: #374151;
+  color: white;
+}
+
+.export-option__button:not(:disabled):hover {
+  background: #475569;
+  transform: translateY(-1px);
+}
+
+.export-option__button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.export-option__button--primary {
+  background: #1e40af;
+}
+
+.export-option__button--primary:hover {
+  background: #3b82f6;
+}
+
+.export-option__button--secondary {
+  background: #059669;
+}
+
+.export-option__button--secondary:hover {
+  background: #10b981;
+}
+
+.export-option__description {
+  margin: 0;
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+/* Адаптивность для модального окна */
+@media (max-width: 768px) {
+  .export-option__content {
+    flex-direction: column;
+  }
+  
+  .export-option__input {
+    width: 100%;
+  }
+  
+  .export-option__button {
+    width: 100%;
+  }
+}
+
