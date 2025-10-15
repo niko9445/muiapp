@@ -51,9 +51,7 @@ const App = () => {
   return () => window.removeEventListener('resize', handleResize);
 }, []);
 
-  const handleMenuClick = () => {
-    setSidebarOpen(true);
-  };
+
 
   const handleCloseSidebar = () => {
     setSidebarOpen(false);
