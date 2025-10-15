@@ -52,12 +52,7 @@ const EditMaintenanceModal = ({ maintenance, onClose, onSave }) => {
     setFormData({ ...formData, additionalItems: updatedItems }); // ИСПРАВЛЕНО
   };
 
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      addAdditionalItem(); // ИСПРАВЛЕНО
-    }
-  };
+
 
   return (
     <Modal isOpen={true} // ДОБАВЬТЕ ЭТУ СТРОКУ
