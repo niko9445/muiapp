@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MaintenanceSection from './MaintenanceSection';
 import CarDataSection from './CarDataSection';
-import EditMaintenanceModal from '../EditCarModal/EditMaintenanceModal'; // Добавляем импорт
+import EditMaintenanceModal from '../EditCarModal/EditMaintenanceModal';
 import './MainContent.css';
 
 const MainContent = ({ 
@@ -13,25 +13,24 @@ const MainContent = ({
   onAddMaintenance,
   onAddCarData,
   onDeleteMaintenance,
-  onDeleteCarData
+  onDeleteCarData,
+  isMobile,
+  onOpenSidebar // ← ИСПОЛЬЗУЕМ ЭТОТ ПРОПС ВМЕСТО setIsSidebarOpen
 }) => {
   const [editingMaintenance, setEditingMaintenance] = useState(null);
   const [isEditMaintenanceModalOpen, setIsEditMaintenanceModalOpen] = useState(false);
 
   const handleEditMaintenance = (maintenance) => {
-    // Закрываем все другие модалки
-    setIsEditMaintenanceModalOpen(false); // Сначала закрываем
+    setIsEditMaintenanceModalOpen(false);
     setEditingMaintenance(null);
     
-    // Затем открываем нужную модалку
     setTimeout(() => {
         setEditingMaintenance(maintenance);
         setIsEditMaintenanceModalOpen(true);
     }, 10);
-    };
+  };
 
   const handleSaveMaintenance = (maintenanceId, updatedData) => {
-    // Логика сохранения изменений ТО
     const updatedCars = cars.map(car => {
       if (car.id === selectedCar.id) {
         const updatedMaintenance = car.maintenance?.map(m => 
@@ -48,22 +47,47 @@ const MainContent = ({
 
   if (!selectedCar) {
     return (
-      <div className="maincontent__empty">
+        <div className="maincontent__empty">
         <div className="maincontent__empty-icon">🚗</div>
         <h3 className="maincontent__empty-title">Выберите автомобиль</h3>
         <p className="maincontent__empty-text">
-          Выберите автомобиль из спики слева или добавьте новый
+            У вас пока нет выбранного автомобиля. Выберите авто из списка или добавьте новый.
         </p>
-      </div>
+        {isMobile ? (
+            <button 
+            className="maincontent__empty-button"
+            onClick={onOpenSidebar}
+            >
+            <span className="maincontent__empty-button-icon">📋</span>
+            Открыть список авто
+            </button>
+        ) : (
+            <p className="maincontent__empty-text" style={{color: '#60a5fa', fontSize: '14px'}}>
+            Выберите автомобиль из списка слева ↓
+            </p>
+        )}
+        </div>
     );
-  }
+    }
 
   return (
     <div className="maincontent__container">
       <div className="maincontent__header">
-        <h1 className="maincontent__title">
-          {selectedCar.brand} {selectedCar.model} ({selectedCar.year})
-        </h1>
+        <div className="maincontent__header-top">
+          {isMobile && (
+            <button 
+              className="maincontent__menu-toggle"
+              onClick={onOpenSidebar} // ← ИСПРАВЛЕНО ЗДЕСЬ!
+            >
+              ☰
+            </button>
+          )}
+          <h1 className="maincontent__title">
+            {selectedCar.brand} {selectedCar.model} ({selectedCar.year})
+          </h1>
+        </div>
+        
+        {/* УБРАЛ ДУБЛИРУЮЩИЙСЯ ЗАГОЛОВОК - ОН УЖЕ ЕСТЬ ВЫШЕ */}
         
         <div className="maincontent__tabs">
           <button
@@ -98,7 +122,7 @@ const MainContent = ({
             setCars={setCars}
             onAddMaintenance={onAddMaintenance}
             onDeleteMaintenance={onDeleteMaintenance}
-            onEditMaintenance={handleEditMaintenance} // Добавляем пропс
+            onEditMaintenance={handleEditMaintenance}
           />
         )}
         
@@ -113,7 +137,6 @@ const MainContent = ({
         )}
       </div>
 
-      {/* Модальное окно редактирования ТО */}
       {isEditMaintenanceModalOpen && (
         <EditMaintenanceModal
           maintenance={editingMaintenance}

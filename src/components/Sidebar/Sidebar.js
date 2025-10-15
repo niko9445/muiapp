@@ -1,4 +1,5 @@
 import React from 'react';
+import DataManager from '../DataManager/DataManager'; // Добавляем импорт
 import './Sidebar.css';
 
 const CarCard = ({ car, isSelected, onSelect, onEdit, onDelete, isMobile = false }) => {
@@ -104,6 +105,11 @@ const Sidebar = ({
             />
           ))
         )}
+      </div>
+
+      {/* ДОБАВЛЯЕМ DataManager В НИЖНЮЮ ЧАСТЬ SIDEBAR */}
+      <div className="sidebar__data-manager">
+        <DataManager />
       </div>
     </div>
   );

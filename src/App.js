@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from './components/Sidebar/Sidebar';
 import MainContent from './components/MainContent/MainContent';
-import DataManager from './components/DataManager/DataManager';
+//import DataManager from './components/DataManager/DataManager';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import './styles/globals.css';
 
@@ -36,6 +36,20 @@ const App = () => {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  useEffect(() => {
+  const handleResize = () => {
+    const mobile = window.innerWidth <= 768;
+    setIsMobile(mobile);
+    setSidebarOpen(!mobile); // На десктопе сайдбар открыт, на мобильных закрыт
+  };
+
+  // Проверяем при загрузке
+  handleResize();
+
+  window.addEventListener('resize', handleResize);
+  return () => window.removeEventListener('resize', handleResize);
+}, []);
 
   const handleMenuClick = () => {
     setSidebarOpen(true);
@@ -208,13 +222,7 @@ const App = () => {
   return (
     <>
       <div className="app">
-        {/* Вертикальная полоска для открытия сайдбара */}
-        {isMobile && !sidebarOpen && (
-          <div 
-            className="sidebar-edge"
-            onClick={handleMenuClick}
-          />
-        )}
+        
 
         {/* Сайдбар */}
         <div className={
@@ -253,8 +261,9 @@ const App = () => {
             onAddCarData={openAddCarDataModal}
             onDeleteMaintenance={(maintenance) => openDeleteConfirm('maintenance', maintenance)}
             onDeleteCarData={(data) => openDeleteConfirm('carData', data)}
+            isMobile={isMobile} // ← ДОБАВЬ ЭТО
+            onOpenSidebar={() => setSidebarOpen(true)} // ← И ЭТО
           />
-          <DataManager />
         </div>
       </div>
 

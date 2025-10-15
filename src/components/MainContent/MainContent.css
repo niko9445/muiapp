@@ -182,3 +182,122 @@
   }
 }
 
+.maincontent__header-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.maincontent__menu-toggle {
+  width: 40px;
+  height: 40px;
+  background: #1e40af;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.maincontent__menu-toggle:hover {
+  background: #3b82f6;
+}
+
+/* Стили для красивой заставки */
+.maincontent__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 40px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.maincontent__empty-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+  opacity: 0.8;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.maincontent__empty-title {
+  margin: 0 0 12px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.maincontent__empty-text {
+  margin: 0 0 32px 0;
+  font-size: 16px;
+  color: #94a3b8;
+  line-height: 1.5;
+  max-width: 400px;
+}
+
+.maincontent__empty-button {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+}
+
+.maincontent__empty-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+}
+
+.maincontent__empty-button:active {
+  transform: translateY(0);
+}
+
+.maincontent__empty-button-icon {
+  font-size: 18px;
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+  .maincontent__empty {
+    padding: 20px;
+  }
+  
+  .maincontent__empty-icon {
+    font-size: 60px;
+  }
+  
+  .maincontent__empty-title {
+    font-size: 20px;
+  }
+  
+  .maincontent__empty-text {
+    font-size: 14px;
+  }
+  
+  .maincontent__empty-button {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
